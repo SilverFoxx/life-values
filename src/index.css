@@ -1,5 +1,221 @@
+html {
+  height: 100%;
+  font-size: 16px;
+  background-color: white;
+}
+
 body {
+  font-size: 1rem;
+  line-height: 1.62;
+  /* BASIC RHYTHM UNIT  multiple of font-size - 25.92px*/
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1400px;
+  text-align: left;
+  color: rgba(10, 11, 18, 1);
+  background-color: white;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+}
+
+.closeMenu {
+  float: right;
+}
+.valueCard {
+  width: 40%;
+  margin: 2em auto;
+  border: 1px solid black;
+  padding: 0.5em;
+  text-align: center;
+  font-size: 300%;
+}
+
+.valueList {
+  width: 40%;
+  margin: 0.2em auto;
+  border: 1px solid black;
+  padding: 0.2em;
+  text-align: center;
+  font-size: 200%;
+}
+.selectorButton {
+  width: 25%;
+  margin-left: 6.25%;
+  float: left;
+}
+
+#counterHolder {
+  width: 20%;
+  float: right;
+}
+div, section {
+  padding: 1em;
+  border: solid black 1px
+}
+/* ==========================================================================
+   Helper classes and boilerplate
+   ========================================================================== */
+
+.lj {
+  text-align: left;
+}
+
+.rj {
+  text-align: right;
+}
+
+.cj {
+  text-align: center;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.noVis {
+  opacity: 0;
+  visibility: hidden;
+  /* So links don't show on hover */
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.smoothAppear {
+  opacity: 1;
+  visibility: 1;
+  transition: opacity 2.5s ease-in-out;
+  -moz-transition: opacity 2.5s ease-in-out;
+  -webkit-transition: opacity 2.5s ease-in-out;
+  -o-transition: opacity 2.5s ease-in-out;
+}
+
+.delayedAppear {
+  opacity: 1;
+  visibility: 1;
+  transition: opacity 8s ease-in-out;
+  -moz-transition: opacity 8s ease-in-out;
+  -webkit-transition: opacity 8s ease-in-out;
+  -o-transition: opacity 8s ease-in-out;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-moz-selection {
+  background: rgb(37, 135, 174);
+  text-shadow: none;
+}
+
+::selection {
+  background: rgb(37, 135, 174);
+  text-shadow: none;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  margin: 1.62em 0;
+  padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+audio {
+  margin-left: 0.62em;
+  opacity: 0.85;
+}
+
+fieldset {
+  border: 0;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
 }
