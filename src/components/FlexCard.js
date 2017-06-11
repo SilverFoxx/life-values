@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-export default class ValueCard extends Component {
+export default class FlexCard extends Component {
   constructor(props) {
 super(props)
   }
 
   render() {
     return (
-      <section id="" className="valueCard">
+      <section className="flexCard" onClick={this.props.onClick}>
         <p>{this.props.name} </p>
       </section>
     )

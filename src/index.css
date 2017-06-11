@@ -48,6 +48,11 @@ body {
   width: 20%;
   float: right;
 }
+
+.flexCard {
+  width: 25%;
+  float: left;
+}
 div, section {
   padding: 1em;
   border: solid black 1px
