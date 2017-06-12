@@ -126,11 +126,17 @@ handleToggleCard(id) {
   card.selected = !card.selected
   this.setState({card: card}) //Why does this syntax work?
 }
+
+// Because 1: react-sortable-hoc requires an array of simple strings, 2: to transfer state to SortableComponent
 makeValueArray() {
-  let obj = {}
-  obj.valueName = [
-    'peace', 'power', 'love'
-  ]
+  const obj = {text: 'screenThree'}
+  obj.valueName = []
+  this.state.values.forEach(element => {
+    if (element.selected) {
+      obj.valueName.push(element.name)
+      console.log(obj.valueName)
+    }
+  })
   return obj
 }
 
@@ -195,7 +201,7 @@ componentWillUnmount() {}
     } else {
       console.log(this.state)
       return (
-        <div><SortableComponent data={this.makeValueArray()}/></div>
+        <div><SortableComponent data={this.makeValueArray()} screen={3}/></div>
       )
 
     }

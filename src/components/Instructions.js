@@ -6,14 +6,11 @@ export default class Instructions extends Component {
   }
 
   render() {
-    const screenOneText = `<p>CHANGE FROM PAVLINA -THIS.PROPS.CHILDREN The following list of values will help you develop a clearer sense of what’s most important to you in life, as explained in the article Living Your Values. Simply copy or print this list, mark the values which most resonate with you, and then sort your list in order of priority.</p>
-
-    While most values on this list will have little or no significance to you (and some may even seem negative to you), some values will surely call to you, and you’ll feel, “Yes, this value is a part of me.”
-
-    Use this values list as a guide. It contains many synonyms but is not exhaustive, so feel free to add unlisted values to your list as well.
-`
+    const screenOneText = `{<p>}Quickly chose as many as you want - aiming for about 15-20. We'll refine it later.`
     const screenTwoTextTop = `Click to reject`
     const screenTwoTextBottom = `Click to accept`
+    const screenThreeText = `Drag and drop to sort your values from MOST important at the top, to less at the bottom. Take your time. Save and return if you wish`
+    const screenThreeUpdate = `Almost there. We want the top 3`
     let text = ''
     if (this.props.text === 'screenOne') { //change to switch
     text = screenOneText
@@ -21,6 +18,8 @@ export default class Instructions extends Component {
       text = screenTwoTextTop
     } else if (this.props.text === 'screenTwoBottom') {
       text = screenTwoTextBottom
+    } else if (this.props.text === 'screenThree') {
+      text = screenThreeText
     }
     return (
       <div className="center">{text}</div>
