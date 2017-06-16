@@ -14,6 +14,7 @@ import ProceedButton from './ProceedButton'
 //import {SortableContainer, SortableElement} from 'react-sortable-hoc';
 import SortableComponent from './SortableComponent'
 import logo from '../logo.svg'
+import UserInput from './UserInput'
 
 export default class App extends Component {
   constructor(props) {
@@ -51,6 +52,20 @@ export default class App extends Component {
         }, {
           id: 4,
           name: 'tolerance',
+          rank: 0,
+          selected: false,
+          rejected: false,
+          active: false
+        }, {
+          id: 5,
+          name: 'joy',
+          rank: 0,
+          selected: false,
+          rejected: false,
+          active: false
+        }, {
+          id: 6,
+          name: 'family',
           rank: 0,
           selected: false,
           rejected: false,
@@ -140,6 +155,25 @@ makeValueArray() {
   return obj
 }
 
+//User adds new values
+handleEnter = (text) => {
+  //TODO sanitise input
+  const oldValues = this.state
+  const newValues = oldValues.values.push(
+    {
+      id: oldValues.values.length,
+      name: text,
+      rank: 0,
+      selected: true,
+      rejected: false,
+      active: false
+    }
+  )
+  console.log(newValues, oldValues)
+  console.log(this.state)
+  oldValues.valueName = newValues
+  this.setState({oldValues: oldValues})
+}
 
 componentWillUnmount() {}
 
@@ -171,21 +205,24 @@ componentWillUnmount() {}
       </div>
     )
   }  else if (this.state.screen === 2) {
+                  //TODO use filter
       return (
         <div>
           {console.log(this.state.values)}
           <Menu></Menu>
           <main id="main" className="container clearfix">
-            <Instructions text={'screenTwoTop'}></Instructions>
+            <Instructions text={'screenTwoInput'} />
+            <Instructions text={'screenTwoTop'} />
             <div id="cardRoot" className="clearfix">
-              //TODO use filter
+
               {_.map(this.state.values, (card) => {
                 if (card.selected) {
                   return <FlexCard name={card.name} key={card.id} onClick={() => this.handleToggleCard(card.id)}/>
                 }
               })}
             </div>
-            <Instructions text={'screenTwoBottom'}></Instructions>
+            <UserInput onClick={this.handleEnter}/>
+            <Instructions text={'screenTwoBottom'} />
             <div id="cardRoot" className="clearfix">
               {_.map(this.state.values, (card) => {
                 //console.log(card.name)
