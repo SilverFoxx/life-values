@@ -1,5 +1,8 @@
 import React, {Component} from 'react'
 
+// TODO stateless functional components
+
+
 export default class Counter extends Component {
   constructor(props) {
     super(props)

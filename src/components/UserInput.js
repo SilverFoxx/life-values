@@ -12,6 +12,7 @@ export default class UserInput extends Component {
   }
   passText = () => {
     this.props.onClick(this.state.value)
+    this.setState({value: ''})
   }
 
   render() {

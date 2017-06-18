@@ -12,6 +12,7 @@ export default class Instructions extends Component {
     const screenTwoTextBottom = `Click to accept`
     const screenThreeText = `Drag and drop to sort your values from MOST important at the top, to less at the bottom. Take your time. Save and return if you wish. The top 5 are the most important.`
     const screenThreeUpdateText = `Almost there. We want the top 3`
+    const screenFinal = `Here are your personal values`
     let text = ''
     if (this.props.text === 'screenOne') { //change to switch
     text = screenOneText
@@ -25,6 +26,8 @@ export default class Instructions extends Component {
       text = screenThreeUpdateText
     } else if (this.props.text === 'screenTwoInput') {
       text = screenTwoInputText
+    } else if (this.props.text === 'screenFinal') {
+      text = screenFinal
     }
     return (
       <div className="center">{text}</div>
