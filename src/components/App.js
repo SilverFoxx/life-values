@@ -11,10 +11,9 @@ import FlexCard from './FlexCard'
 import Button from './Button'
 import Counter from './Counter'
 import SortableComponent from './SortableComponent'
-import logo from '../logo.svg'
 import UserInput from './UserInput'
-import Login from './Login.js'
-import LogOut from './LogOut.js'
+import Login from './Login'
+import LogOut from './LogOut'
 import db from '../lib/database'
 
 const fire = db.ref('UserValues')
@@ -37,35 +36,189 @@ const initialState = {
       active: false
     }, {
       id: 2,
-      name: 'power',
+      name: 'happiness',
       rank: 0,
       selected: false,
       rejected: false,
       active: false
     }, {
       id: 3,
-      name: 'beauty',
+      name: 'success',
       rank: 0,
       selected: false,
       rejected: false,
       active: false
     }, {
       id: 4,
-      name: 'tolerance',
+      name: 'relationships',
       rank: 0,
       selected: false,
       rejected: false,
       active: false
     }, {
       id: 5,
-      name: 'joy',
+      name: 'fame',
       rank: 0,
       selected: false,
       rejected: false,
       active: false
     }, {
       id: 6,
-      name: 'family',
+      name: 'authenticity',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 7,
+      name: 'influence',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 8,
+      name: 'power',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 9,
+      name: 'justice',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 10,
+      name: 'faith',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 11,
+      name: 'honesty',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 12,
+      name: 'loyalty',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 13,
+      name: 'integrity',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 14,
+      name: 'enjoyment',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 15,
+      name: 'love',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 16,
+      name: 'leadership',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 17,
+      name: 'recognition',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 18,
+      name: 'community',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 19,
+      name: 'truth',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 20,
+      name: 'respect for self',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 21,
+      name: 'respect for others',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 22,
+      name: 'location',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 23,
+      name: 'responsibility',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 24,
+      name: 'courtesy',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 25,
+      name: 'creativity',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 26,
+      name: 'health',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 27,
+      name: 'service',
+      rank: 0,
+      selected: false,
+      rejected: false,
+      active: false
+    }, {
+      id: 28,
+      name: 'independence',
       rank: 0,
       selected: false,
       rejected: false,
@@ -280,9 +433,7 @@ export default class App extends Component {
       return <Login handleAuth={this.handleAuth}/>
     } else {
       if (this.state.screen === 1) {
-        {
           console.log(this.state)
-        }
         return (
           <div>
             <Menu></Menu>

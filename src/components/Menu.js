@@ -22,3 +22,5 @@ export default class Menu extends Component {
     )
   }
 }
+// const Menu =
+// export default Menu
