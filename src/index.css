@@ -1,4 +1,4 @@
-html {
+rgba(209, 253, 254, 1) rgba(180, 223, 229, 1) rgba(48, 60, 108, 1) rgba(244, 151, 108, 1) rgba(251, 232, 166, 1) rgba(168, 242, 219, 1) html {
   height: 100%;
   font-size: 16px;
   background-color: white;
@@ -9,116 +9,441 @@ body {
   line-height: 1.62;
   /* BASIC RHYTHM UNIT  multiple of font-size - 25.92px*/
   padding: 0;
-  margin: 0 auto;
-  max-width: 1400px;
+  margin: 0;
+  /*max-width: 1400px;*/
   text-align: left;
-  color: rgba(10, 11, 18, 1);
   background-color: white;
   text-rendering: optimizeLegibility;
   font-kerning: normal;
+  font-family: 'Lato', sans-serif;
+  color: rgba(48, 60, 108, 1);
 }
 
-.closeMenu {
-  float: right;
+svg {
+  width: 2em;
+  height: 2em;
 }
+
+
+/*LOGIN SPLASH PAGE*/
+
+main.login {
+  position: fixed;
+  background-image: url(./img/login.jpg);
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*background-attachment: fixed;*/
+  background-position: 70% 100%;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+h1, .valueCard, .counter, .flexCard, .listItem, h2 {
+  font-family: 'Arima Madurai', cursive;
+  font-weight: 200;
+}
+
+.login .title {
+  position: fixed;
+  left: 10%;
+  bottom: 20%;
+}
+
+.login span {
+  background-color: rgba(48, 60, 108, 0.5);
+  padding: 0.5em;
+  border-radius: 0.2em;
+  font-size: 1rem;
+
+}
+
+.loginHolder {
+  background-color: transparent;
+  width: 33%;
+  /*max-width: 1000px;*/
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  bottom: 1.62em;
+}
+
+
+/*.formWrapper {
+  width: 62%;
+  margin: 0 auto;
+}*/
+
+.loginHolder form {
+  /*background-color: white;
+  color: rgba(48, 60, 108, 1);*/
+  margin: 0 auto;
+  border-radius: 1em;
+  text-align: left;
+}
+
+.loginHolder form div:first-of-type {
+  color: rgba(244, 151, 108, 1);
+}
+
+.loginHolder p {
+  margin-bottom: 0;
+  font-size: 1rem;
+  opacity: 0.8
+}
+
+input {
+  border: none;
+  border-bottom: solid 2px white;
+  box-shadow: none;
+  outline: none;
+  transition: border 0.4s;
+  background-color: transparent;
+  color: white;
+  font-size: 1em;
+  padding: 0.5em;
+  width: 100%;
+}
+
+input:focus {
+  border: none;
+  box-shadow: none;
+  border-bottom: solid 2px rgba(48, 60, 108, 1);
+  outline: none;
+}
+
+
+/*Screen 3 input*/
+
+input.newValue {
+  color: rgba(48, 60, 108, 1);
+  width: 15%;
+  margin: 0 0 1.6em 5%;
+  border-radius: 0.1em;
+  border: solid 1px rgba(48, 60, 108, 0.6);
+  transition: box-shadow 0.4s, border 0.4s;
+}
+
+input:focus.newValue {
+  border: solid 1px rgba(48, 60, 108, 1);
+  box-shadow: 0 0 5px 1px rgba(48, 60, 108, 0.1);
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.62em;
+}
+
+button {
+  width: 30%;
+  border: solid 0.1em rgba(251, 232, 166, 1);
+  border-radius: 1em;
+  background-color: rgba(48, 60, 108, 0.5);
+  padding: 0.5em;
+  color: rgba(251, 232, 166, 1);
+  font-size: 1em;
+  line-height: 1.62;
+}
+
+button:first-of-type {
+  /*background-color: rgba(251, 232, 166, 1);*/
+  color: rgba(244, 151, 108, 1);
+  border: solid 0.1em rgba(244, 151, 108, 1);
+}
+
+
+/*SCREEN ONE*/
+
+main {
+  padding-top: 2em;
+}
+
+
+/*controls width of screen without revealing slide-in elements*/
+
+#page-wrap {
+  padding: 1.62em;
+}
+
+.instructionsWrapper {
+  text-align: center;
+  width: 62%;
+  margin: 2em auto;
+}
+
 .valueCard {
   width: 40%;
-  margin: 2em auto;
-  border: 1px solid black;
+  margin: auto;
+  border-bottom: 1px solid rgba(48, 60, 108, 1);
   padding: 0.5em;
   text-align: center;
   font-size: 300%;
 }
 
-.valueList {
+/*TODO ReactCSSTransitionGroup*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.screenOne .valueCard p {
+  animation: fadeIn 1s forwards ease;
+}
+/*.valueList {
   width: 40%;
   margin: 0.2em auto;
   border: 1px solid black;
   padding: 0.2em;
   text-align: center;
   font-size: 200%;
-}
-
-
-#counterHolder {
-  width: 20%;
-  float: right;
-}
+}*/
 
 .flexContainer {
   display: flex;
   flex-wrap: wrap
 }
 
-#cardRoot {
-
+.chooseCard {
+  display: flex;
+  justify-content: space-around;
 }
+
+.counter p {
+  font-size: 300%;
+}
+
+
+/*.chooseCard span:nth-of-type(1), */
+
+section.counter:nth-of-type(1) {
+  color: rgba(244, 151, 108, 1);
+}
+
+
+/*.chooseCard span:nth-of-type(2),*/
+
+section.counter:nth-of-type(2) {
+  color: rgba(180, 223, 229, 1);
+}
+
+
+/*.chooseCard span:nth-of-type(3),*/
+
+section.counter:nth-of-type(3) {
+  color: rgba(168, 242, 219, 1);
+}
+
+
+/*SCREEN TWO*/
+
+.inputInstructions {
+  text-align: left;
+  margin: 2em 0;
+}
+
+.inputInstructions p {
+  margin-bottom: -1em;
+}
+
 .flexCard {
   padding: 1em;
   border-radius: 2em;
-
+  border: solid 2px;
+  margin: 0;
 }
+
+.flexLabel {
+  margin: 0 0.38em 0.38em 0;
+  border-radius: 2em 0 0 2em;
+  color: white;
+  background-color: rgba(168, 242, 219, 1);
+  border: none;
+  font-family: 'Lato', sans-serif;
+}
+
+.flexLabel.rejected {
+  background-color: rgba(244, 151, 108, 1);
+}
+
+
+/*SCREEN THREE*/
 
 .listContainer {
   display: flex;
-   height: 100%;
-   box-sizing: border-box;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-     background-color: rgba(200,200,200,1);
-
+  height: 100%;
+  width: 62%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(200, 200, 200, 0.1);
+  border: ridge 3px;
 }
+
 .listItem {
-      border: 1px solid #999;
-  box-shadow: 0 5px 5px -5px rgba(0,0,0,0.2), 0 -5px 5px -5px rgba(0,0,0,0.2);
-
+  box-shadow: 0 0.2em 0.2em -3px rgba(0, 0, 0, 0.2), 0 0.1em 0.1em -2px rgba(0, 0, 0, 0.2), 0 -0.2em 0.2em -3px rgba(0, 0, 0, 0.2), 0 -0.1em 0.1em -2px rgba(0, 0, 0, 0.2);
   cursor: row-resize;
-
   display: flex;
-align-items: center;
-width: 100%;
-padding: 0 20px;
-  background-color: rgba(255,255,255,0.9);
-border-bottom: 1px solid #EFEFEF;
-box-sizing: border-box;
-user-select: none;
-
-color: #333;
-font-weight: 400;
-position: relative;
-border-bottom: 1px solid #999;
-position: relative;
- z-index: 0;
- border: 1px solid #EFEFEF;
- border-radius: 3px;
- outline: none;
+  justify-content: center;
+  width: 100%;
+  padding: 0.31em;
+  box-sizing: border-box;
+  user-select: none;
+  font-size: 200%;
+  font-weight: 400;
+  position: relative;
+  position: relative;
+  z-index: 0;
+  outline: none;
+  border: outset 0.05em rgba(148, 160, 208, 1);
+  /*Opacity important for 3D drag effect*/
+  background-color: rgba(48, 60, 108, 0.65);
+  color: rgba(251, 232, 166, 1);
 }
 
-.logOut {
-  width: 10%;
-  float: right;
+.listItem:nth-of-type(1) {
+  background-color: rgba(48, 60, 108, 0.9);
 }
+
+.listItem:nth-of-type(2) {
+  background-color: rgba(48, 60, 108, 0.85);
+}
+
+.listItem:nth-of-type(3) {
+  background-color: rgba(48, 60, 108, 0.8);
+}
+
+.listItem:nth-of-type(4) {
+  background-color: rgba(48, 60, 108, 0.75);
+}
+
+.listItem:nth-of-type(5) {
+  background-color: rgba(48, 60, 108, 0.7);
+}
+
+
+/*FINAL SCREEN*/
+
+@keyframes spin {
+  from {
+    transform: rotateY(0);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(1turn);
+    opacity: 1;
+  }
+}
+
+@keyframes shadow {
+  from {
+    text-shadow: none;
+  }
+  to {
+    transform: translateY(-0.06em);
+    text-shadow: 0 0.15em 0.075em rgba(48, 60, 108, 0.5), 0 -1px 1px #fff;
+  }
+}
+
+.finalScreen .valueCard {
+  animation-name: spin, shadow;
+  animation-delay: 0s, 5s;
+  animation-duration: 3s, 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+  opacity: 0;
+  text-shadow: none;
+  font-size: 400%;
+  letter-spacing: .15em;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  /*animation-iteration-count: infinite;*/
+}
+
+.finalScreen .valueCard:nth-of-type(2) {
+  animation-delay: 1s, 5s;
+}
+
+.finalScreen .valueCard:nth-of-type(3) {
+  animation-delay: 2s, 5s;
+}
+
+.finalScreen #cardRoot {
+  perspective: 1000px;
+  /*background-color: rgba(180, 223, 229, 1);*/
+}
+
 
 /* ==========================================================================
   Buttons
    ========================================================================== */
-   .button {
-     width: 25%;
-     margin-left: 6.25%;
-     float: left;
-   }
 
-.proceed {
-
+.button {
+  width: 25%;
+  border-radius: 1em;
+  padding: 1em;
+  text-align: center;
+  color: white;
 }
+
+.button.select:nth-of-type(1) {
+  background-color: rgba(244, 151, 108, 1);
+}
+
+.button.select:nth-of-type(2) {
+  background-color: rgba(180, 223, 229, 1);
+}
+
+.button.select:nth-of-type(3) {
+  background-color: rgba(168, 242, 219, 1);
+}
+
+.button.proceed {
+  background-color: rgba(168, 242, 219, 1);
+  margin: 1.6em auto 0;
+}
+
+.button.anonUser {
+  margin: 0.62em auto;
+  background-color: rgba(48, 60, 108, 0.5);
+  border: solid 0.1em rgba(168, 242, 219, 1);
+  color: rgba(168, 242, 219, 1);
+  width: 10%;
+  padding: 0.5em;
+}
+
+.button.newValue {
+  background-color: rgba(48, 60, 108, 1);
+}
+
 .startOver {
-color: red;
+  position: absolute;
+  top: 0.6em;
+  left: 42.5%;
+  width: 15%;
+  padding-top: 0.5em;
 }
-div, section {
 
-  border: solid black 1px
+.logOut {
+  position: absolute;
+  top: 0.6em;
+  right: 2em;
+  width: 15%;
+  padding-top: 0.5em;
 }
+
+.logOut svg:first-of-type {
+  margin-right: 0.5em
+}
+
+
 /* ==========================================================================
    Helper classes and boilerplate
    ========================================================================== */
@@ -173,8 +498,7 @@ div, section {
   -o-transition: opacity 8s ease-in-out;
 }
 
-.clearfix:before,
-.clearfix:after {
+.clearfix:before, .clearfix:after {
   content: " ";
   display: table;
 }
@@ -209,12 +533,7 @@ hr {
   padding: 0;
 }
 
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
+audio, canvas, iframe, img, svg, video {
   vertical-align: middle;
 }
 
@@ -233,21 +552,19 @@ textarea {
   resize: vertical;
 }
 
+
 /* ==========================================================================
    Print styles
    ========================================================================== */
 
 @media print {
-  *,
-  *:before,
-  *:after {
+  *, *:before, *:after {
     background: transparent !important;
     color: #000 !important;
     box-shadow: none !important;
     text-shadow: none !important;
   }
-  a,
-  a:visited {
+  a, a:visited {
     text-decoration: underline;
   }
   a[href]:after {
@@ -256,33 +573,103 @@ textarea {
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
-  a[href^="#"]:after,
-  a[href^="javascript:"]:after {
+  a[href^="#"]:after, a[href^="javascript:"]:after {
     content: "";
   }
-  pre,
-  blockquote {
+  pre, blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
   thead {
     display: table-header-group;
   }
-  tr,
-  img {
+  tr, img {
     page-break-inside: avoid;
   }
   img {
     max-width: 100% !important;
   }
-  p,
-  h2,
-  h3 {
+  p, h2, h3 {
     orphans: 3;
     widows: 3;
   }
-  h2,
-  h3 {
+  h2, h3 {
     page-break-after: avoid;
+  }
+}
+
+
+/* Position and sizing of burger button */
+
+.bm-burger-button {
+  position: fixed;
+  width: 3em;
+  height: 3em;
+  left: 2em;
+  top: 0.6em;
+}
+
+
+/* Color/shape of burger icon bars */
+
+.bm-burger-bars {
+  background: rgba(48, 60, 108, 1);
+}
+
+
+/* Position and sizing of clickable cross button */
+
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+
+/* Color/shape of close button cross */
+
+.bm-cross {
+  background: #bdc3c7;
+}
+
+
+/* General sidebar styles */
+
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+
+/* Morph shape necessary with bubble or elastic */
+
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+
+/* Wrapper for item list */
+
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+
+/* Styling of overlay */
+
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (min-width: 1000px) {
+  body {
+    font-size: 1.3em;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  #page-wrap {
+    padding: 1.62em;
   }
 }

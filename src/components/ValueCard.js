@@ -27,3 +27,5 @@ ValueCard.propTypes = {
 export default ValueCard
 
 //WOW!! Go stateless functional components!
+
+//TODO Tap to flip and show more info https://codepen.io/phantomesse/pen/uGHxn

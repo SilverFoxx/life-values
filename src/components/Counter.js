@@ -10,8 +10,8 @@ export default class Counter extends Component {
 
   render() {
     return (
-      <section id={this.props.id} className="counter">
-        <p>{this.props.children}</p>
+      <section id={this.props.id} className={`counter ${this.props.className}`}>
+        {/* <p>{this.props.children}</p> */}
         <p className="cj">
           {this.props.total}
         </p>

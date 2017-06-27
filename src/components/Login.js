@@ -2,12 +2,13 @@ import React, {Component} from 'react'
 import auth from '../lib/auth'
 
 import Button from './Button'
+import img from '../img/login.jpg'
 
 export default class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      error: undefined,
+      error: undefined
     }
   }
 
@@ -42,32 +43,43 @@ export default class Login extends Component {
     this.refs.passwordInput.value = ''
   }
 
-onAnonUser = () => {
-  this.setState({error: undefined})
-  this.props.handleAuth(false, true)
-}
+  onAnonUser = () => {
+    this.setState({error: undefined})
+    this.props.handleAuth(false, true)
+  }
   render() {
     return (
-      <div>
-        <div>
-          <div>{this.state.error
-              ? this.state.error
-              : null}
+      <main className="login">
+        <div className="title">
+          <h1>Find your values</h1>
+          <h2>~find your path through life~</h2>
+        </div>
+        <div className="formWrapper">
+          <div className="loginHolder">
+            <form>
+              <div>{this.state.error
+                  ? this.state.error
+                  : null}
+              </div>
+              <p>Email</p>
+              <input ref="usernameInput" type="text"/>
+              <p>Password</p>
+              <input ref="passwordInput" type="password"/>
+            </form>
+            <div className="buttonWrapper">
+              <button onClick={this.onSignUp}>Sign Up</button>
+              <button onClick={this.onLogIn}>Log In</button>
+            </div>
           </div>
-          <label>Username</label>
-          <input ref="usernameInput" type="text"/>
+          <div className="anon">
+            <span>Use without log-in</span>
+            <Button onClick={this.onAnonUser} className={'anonUser'}>
+              Enter</Button>
+            <span>(can't save and return)</span>
+          </div>
+
         </div>
-        <div>
-          <label>Password</label>
-          <input ref="passwordInput" type="password"/>
-        </div>
-        <div>
-          <button onClick={this.onSignUp}>Sign Up</button>
-          <button onClick={this.onLogIn}>Log In</button>
-          <p>Or use anonymously (can't save and return)</p>
-          <Button onClick={this.onAnonUser}> Anon</Button>
-        </div>
-      </div>
+      </main>
     )
   }
 }

@@ -18,8 +18,8 @@ export default class UserInput extends Component {
   render() {
     return (
       <div>
-      <input type="text" value={this.state.value} onChange={this.handleChange} />
-      <div onClick={this.passText}>Enter</div>
+      <input type="text" className={`${this.props.className}`} value={this.state.value} onChange={this.handleChange} />
+      <div className="button newValue" onClick={this.passText}>Add new value...</div>
     </div>
     )
   }
