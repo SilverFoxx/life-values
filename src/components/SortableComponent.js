@@ -1,16 +1,14 @@
 import React, {Component} from 'react'
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc'
-//import _ from 'lodash'
+import db from '../lib/database'
 
-//import Menu from './Menu'
 import BurgerMenu from './BurgerMenu'
-//import {push as Menu} from 'react-burger-menu'
 import Instructions from './Instructions'
 import Button from './Button'
 import ValueCard from './ValueCard'
 import Login from './Login'
 import LogOut from './LogOut'
-import db from '../lib/database'
+
 
 export default class SortableComponent extends Component {
   constructor(props) {

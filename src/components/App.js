@@ -247,9 +247,7 @@ export default class App extends Component {
     const user = this.state.user
     const anonUser = this.state.anonUser
     //Reset to initial state
-    //this.state.values = []
-    //this.state = initialState
-    this.setState(initialState) //doesn't deeply work - coz mutating state elsewhere??
+    this.setState(initialState) //FIXME doesn't deeply work - coz mutating state elsewhere??
     //...but preserve login status
     this.setState({user: user, anonUser: anonUser})
   }
@@ -280,7 +278,6 @@ export default class App extends Component {
   setNextActive = () => {
     console.log(this.state.totalSelected + this.state.totalRejected)
     let nextActiveIndex = this.state.values.findIndex(element => !element.selected && !element.rejected)
-    //console.log(this.state, nextActiveIndex)
     const nextActiveCard = this.state.values[nextActiveIndex]
     nextActiveCard.active = true
     this.setState({activeIndex: nextActiveIndex, nextActiveCard: nextActiveCard})
@@ -340,21 +337,17 @@ export default class App extends Component {
   }
 
   handleToggleCard = (id) => {
-    //this.setState({selected: false})
-    // let card = this.state.values[id].selected
-    // this.setState({card: false})
     let index = this.state.values.findIndex(element => element.id === id)
     let card = this.state.values[index]
     if (card.selected) {
       let state = this.state
       state.totalSelected -= 1
-      console.log(this.state.totalSelected, this.state)
     } else {
       let state = this.state
       state.totalSelected += 1
     }
     card.selected = !card.selected
-    this.setState({card: card}) //Why does this syntax work?
+    this.setState({card: card})
   }
 
   updateTotalSelected = () => {
@@ -362,8 +355,6 @@ export default class App extends Component {
     this.state.values.forEach(element => {
       if (element.selected) {
         totalSelected = totalSelected + 1
-        console.log(totalSelected)
-        console.log('this.state.totalSelected', this.state.totalSelected)
       }
     })
     //this.setState({totalSelected: totalSelected})
@@ -395,7 +386,6 @@ export default class App extends Component {
     this.state.values.forEach(element => {
       if (element.selected) {
         obj.valueName.push(element.name)
-        console.log(obj.valueName)
       }
     })
     return obj
@@ -433,11 +423,6 @@ export default class App extends Component {
   //   })
   // }
 
-  //componentDidMount()
-  // { < Menu isOpen = {
-  //     true
-  //   } />
-  //}
   render() {
     if (!this.state.user && !this.state.anonUser) {
       return <div>
@@ -521,7 +506,6 @@ export default class App extends Component {
                 <Instructions text={'screenTwoBottom'}/>
                 <div id="cardRoot" className="flexContainer">
                   <FlexCard className="flexLabel rejected" name="rejected:"/> {_.map(this.state.values, (card) => {
-                    //console.log(card.name)
                     if (!card.selected) {
                       return <FlexCard name={card.name} randomColor key={card.id} onClick={() => this.handleToggleCard(card.id)}/>
                     }
