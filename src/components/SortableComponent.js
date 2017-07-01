@@ -32,7 +32,6 @@ export default class SortableComponent extends Component {
     this.setState({user: false, anonUser: false})
   }
   handleAuth = (user, anon) => {
-    console.log('called')
     this.setState({user: user, anonUser: anon})
   }
   onSortEnd = ({oldIndex, newIndex}) => {
@@ -43,19 +42,15 @@ export default class SortableComponent extends Component {
 
   updateScreenThree = () => {
     //TODO update main state (callback passing names, find correct id, update selected and rank)
-    console.log(this.state.valueName.length)
     if (this.state.valueName.length > 5) {
       const oldValues = this.state
       const newValues = oldValues.valueName.slice(0, 5)
       oldValues.valueName = newValues
       this.setState({text: 'screenThreeUpdate', oldValues: oldValues})
-      console.log(this.state)
     } else if (this.state.valueName.length > 3 && this.state.valueName.length <= 5) {
       //move to final screen with top 3 values
       let oldValues = this.state
-      //console.log(newValues, oldValues)
       oldValues.valueName = oldValues.valueName.slice(0, 3)
-      console.log(oldValues.valueName)
       //FIXME works, but also adds oldValues - to do with slice?
       this.setState({screen: 4, oldValues: oldValues})
     } else {
@@ -64,14 +59,11 @@ export default class SortableComponent extends Component {
   }
 
   render() {
-    console.log(this.state.valueName.length)
-
     if (!this.state.user && !this.state.anonUser) {
       return <Login handleAuth={this.handleAuth}/>
     }
 
     if (this.state.screen === 4) {
-      console.log(this.state)
       //startover option
       return (
         <div id="outer-container">
@@ -84,12 +76,16 @@ export default class SortableComponent extends Component {
               </svg>
             </Button>
             <main id="main" className="finalScreen">
-              <Instructions text={'screenFinal'}></Instructions>
+              {/* <Instructions text={'screenFinalTop'}></Instructions> */}
               <div id="cardRoot">
                 {this.state.valueName.map((card, index) => {
                   return <ValueCard name={card} key={index}/>
                 })}
               </div>
+              <div className="finalText">
+              <p>That was the easy part. Now you have to change your life until you're living in harmony with {this.state.valueName[0]}, {this.state.valueName[1]} and {this.state.valueName[2]}.</p>
+              <a href="http://reallylivelife.org/life-philosophy/why-you-need-a-personal-philosophy-of-life.html" title="External link" className="cta">Here's how...</a>
+            </div>
             </main>
           </div>
         </div>

@@ -19,12 +19,28 @@ body {
   color: rgba(48, 60, 108, 1);
 }
 
-svg {
-  width: 2em;
-  height: 2em;
+a:link,
+a:visited{
+  transition: all 0.2s ease-in-out;
 }
 
+a:hover {
+  transition: all 0.4s ease-in-out;
+}
 
+a:link,
+a:visited {
+  text-decoration: none;
+}
+a.cta:link, a.cta:visited {
+  color: rgba(168, 242, 219, 1);
+  background-color: white;
+}
+
+a.cta:hover {
+  background-color: rgba(168, 242, 219, 1);
+  color: white;
+}
 /*LOGIN SPLASH PAGE*/
 
 main.login {
@@ -111,9 +127,9 @@ input:focus {
 
 input.newValue {
   color: rgba(48, 60, 108, 1);
-  width: 33%;
-  margin: 0 0 1.6em 5%;
-  border-radius: 0.1em;
+  width: 30%;
+  margin: 0 0 1.6em;
+  border-radius: 0.2em;
   border: solid 1px rgba(48, 60, 108, 0.6);
   transition: box-shadow 0.4s, border 0.4s;
 }
@@ -149,9 +165,13 @@ button:first-of-type {
 /*SCREEN ONE*/
 
 main {
-  padding-top: 2em;
+  padding-top: 0.6em;
 }
 
+svg {
+  width: 1em;
+  height: 1em;
+}
 
 /*controls width of screen without revealing slide-in elements*/
 #page-wrap {
@@ -160,7 +180,7 @@ main {
 
 .instructionsWrapper {
   text-align: center;
-  width: 90%;
+  width: 100%;
   margin: 2em auto;
 }
 
@@ -231,8 +251,8 @@ section.counter:nth-of-type(3) {
 }
 
 .flexCard {
-  padding: 1em;
-  border-radius: 2em;
+  padding: 0.62em;
+  border-radius: 1.6em;
   border: solid 2px;
   margin: 0;
 }
@@ -333,6 +353,16 @@ section.counter:nth-of-type(3) {
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
 .finalScreen .valueCard {
   animation-name: spin, shadow;
   animation-delay: 0s, 5s;
@@ -363,7 +393,21 @@ section.counter:nth-of-type(3) {
   /*background-color: rgba(180, 223, 229, 1);*/
 }
 
+.finalText {
+  opacity: 0;
+  visibility: hidden;
+  animation-name: fadeIn;
+  animation-delay: 6.5s;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
 
+.finalText a {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
 /* ==========================================================================
   Buttons
    ========================================================================== */
@@ -376,6 +420,9 @@ section.counter:nth-of-type(3) {
   color: white;
 }
 
+.button:hover {
+  box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.15);
+}
 .button.select:nth-of-type(1) {
   background-color: rgba(244, 151, 108, 1);
 }
@@ -404,27 +451,21 @@ section.counter:nth-of-type(3) {
 
 .button.newValue {
   background-color: rgba(48, 60, 108, 1);
-  margin-left: 5%;
 }
 
-.startOver {
+.button.startOver {
   position: absolute;
   top: 0.6em;
-  left: 42.5%;
-  width: 15%;
-  padding-top: 0.5em;
+  left: 37.5%;
+  width: 25%;
+  padding: 0;
 }
 
 .logOut {
   position: absolute;
   top: 0.6em;
   right: 2em;
-  width: 15%;
-  padding-top: 0.5em;
-}
-
-.logOut svg:first-of-type {
-  margin-right: 0.5em
+  padding: 0;
 }
 
 
@@ -444,14 +485,6 @@ section.counter:nth-of-type(3) {
   text-align: center;
 }
 
-.left {
-  float: left;
-}
-
-.right {
-  float: right;
-}
-
 .clearfix:before, .clearfix:after {
   content: " ";
   display: table;
@@ -469,41 +502,13 @@ section.counter:nth-of-type(3) {
   box-sizing: border-box;
 }
 
-::-moz-selection {
-  background: rgb(37, 135, 174);
-  text-shadow: none;
-}
-
 ::selection {
-  background: rgb(37, 135, 174);
+  background: rgba(180, 223, 229, 0.1);
   text-shadow: none;
-}
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  margin: 1.62em 0;
-  padding: 0;
 }
 
 audio, canvas, iframe, img, svg, video {
   vertical-align: middle;
-}
-
-audio {
-  margin-left: 0.62em;
-  opacity: 0.85;
-}
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-textarea {
-  resize: vertical;
 }
 
 
@@ -554,11 +559,10 @@ textarea {
 
 
 /* Position and sizing of burger button */
-
 .bm-burger-button {
   position: fixed;
-  width: 3em;
-  height: 3em;
+  width: 1em;
+  height: 1.4em;
   left: 2em;
   top: 0.6em;
 }
@@ -574,22 +578,22 @@ textarea {
 /* Position and sizing of clickable cross button */
 
 .bm-cross-button {
-  height: 24px;
-  width: 24px;
+  height: 1.6em;
+  width: 1.6em;
 }
 
 
 /* Color/shape of close button cross */
 
 .bm-cross {
-  background: #bdc3c7;
+  background: rgba(245, 245, 245, 1);
 }
 
 
 /* General sidebar styles */
 
 .bm-menu {
-  background: #373a47;
+  background: rgba(48, 60, 108, 1);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
@@ -605,36 +609,56 @@ textarea {
 /* Wrapper for item list */
 
 .bm-item-list {
-  color: #b8b7ad;
+  color: rgba(245, 245, 245, 1);
   padding: 0.8em;
 }
 
+.bm-menu a:link {
+  color: rgba(251, 232, 166, 0.95);
+}
+.bm-menu a:visited {
+  color: rgba(251, 232, 166, 0.9);
+}
+.bm-menu a:hover {
+  color: rgba(251, 232, 166, 1);
+}
 
 /* Styling of overlay */
 
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
+
+@media only screen and (min-width: 680px) {
+  body {
+    font-size: 1.15em;
+  }
+}
 @media only screen and (min-width: 768px) {
+
 .login h2 {
   opacity: 1;
   visibility: visible;
+}
+.bm-burger-button {
+  width: 1.6em;
+  height: 1.6em;
+}
+svg {
+  width: 1.6em;
+  height: 1.6em;
+}
+main {
+  padding-top: 1.6em;
 }
 .instructionsWrapper {
   width: 62%;
 
 }
 input.newValue {
-  width: 15%;
+  width: 25%;
 }
-input.newValue {
-  color: rgba(48, 60, 108, 1);
-  width: 15%;
-  margin: 0 0 1.6em 5%;
-  border-radius: 0.1em;
-  border: solid 1px rgba(48, 60, 108, 0.6);
-  transition: box-shadow 0.4s, border 0.4s;
-}
+
 .button {
   width: 25%;
 }
