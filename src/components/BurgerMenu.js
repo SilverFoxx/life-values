@@ -1,23 +1,6 @@
 import React, {Component} from 'react'
 import {push as Menu} from 'react-burger-menu'
 import menuIcon from '../img/menu.svg'
-// class Menu extends React.Component {
-//   showSettings (event) {
-//     event.preventDefault();
-//   }
-//
-//   render () {
-//     return (
-//       <Menu>
-//         <a id="home" className="menu-item" href="/">Home</a>
-//         <a id="about" className="menu-item" href="/about">About</a>
-//         <a id="contact" className="menu-item" href="/contact">Contact</a>
-//         <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
-//       </Menu>
-//     );
-//   }
-// }
-// export default Menu
 
 export default class BurgerMenu extends Component {
   constructor(props) {
@@ -28,7 +11,7 @@ export default class BurgerMenu extends Component {
     return (
       <Menu pageWrapId={"page-wrap"} outerContainerId={"outer-container"} width={'90%'} customBurgerIcon={< img src = {
         menuIcon
-      } />}>
+      } alt="Menu burger icon"/>}>
         <article>
           <h1>Personal Values Finder</h1>
           <h2>How to</h2>
@@ -39,22 +22,22 @@ export default class BurgerMenu extends Component {
           <p>Do it again. Take your time. (It took me weeks to get this right).</p>
           <h2>Why Bother?</h2>
           <p>See
-            <a href="http://reallylivelife.org/life-philosophy/why-you-need-a-personal-philosophy-of-life.html" title="External link">here.</a>
+            <a href="http://reallylivelife.org/life-philosophy/why-you-need-a-personal-philosophy-of-life.html" title="External link"> here.</a>
           </p>
           <h2>Resources</h2>
           <p>Living an authentic life:
-            <a href="http://reallylivelife.org/life-philosophy/" title="External link">reallylivelife.org</a>
+            <a href="http://reallylivelife.org/life-philosophy/" title="External link"> reallylivelife.org</a>
           </p>
           <p>Huge list of values:
-            <a href="https://www.stevepavlina.com/blog/2004/11/list-of-values/">stevepavlina.com</a>
+            <a href="https://www.stevepavlina.com/blog/2004/11/list-of-values/"> stevepavlina.com</a>
           </p>
           <p>Applied to careers:
-            <a href="https://www.mindtools.com/pages/article/newTED_85.htm">mindtools.com</a>
+            <a href="https://www.mindtools.com/pages/article/newTED_85.htm"> mindtools.com</a>
           </p>
           <footer>
             <h2>About</h2>
             <p>Developed by
-              <a href="http://cewl.io">cewl.io</a>. &copy;2017 cewl.io</p>
+              <a href="http://cewl.io"> cewl.io</a>. &copy;2017 cewl.io</p>
             <p>Contact: webmaster (at) cewl.io</p>
           </footer>
         </article>
@@ -62,6 +45,3 @@ export default class BurgerMenu extends Component {
     )
   }
 }
-
-// const Menu =
-// export default Menu

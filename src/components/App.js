@@ -1,11 +1,8 @@
 import React, {Component} from 'react'
-import _ from 'lodash'
-
-// import ScreenOne from './ScreenOne'
-// import ScreenTwo from './ScreenTwo'
-// import ScreenThree from './ScreenThree'
+import {CSSTransitionGroup} from 'react-transition-group'
 import BurgerMenu from './BurgerMenu'
 //import {push as Menu} from 'react-burger-menu'
+
 import Instructions from './Instructions'
 import ValueCard from './ValueCard'
 import FlexCard from './FlexCard'
@@ -79,8 +76,7 @@ const initialState = {
       selected: false,
       rejected: false,
       active: false
-    },
-    {
+    }, {
       id: 8,
       name: 'power',
       rank: 0,
@@ -265,7 +261,7 @@ export default class App extends Component {
   }
 
   changeScreen = (screen) => {
-    if (this.state.totalSelected < 6) { //TODO increase
+    if (this.state.totalSelected < 10) {
       alert('Choose more values!')
     } else {
       let newScreen = this.state
@@ -282,7 +278,7 @@ export default class App extends Component {
     this.setState({activeIndex: nextActiveIndex, nextActiveCard: nextActiveCard})
   }
 
-  handleSelectCard = () => { //TODO redo without state mutation
+  handleSelectCard = () => {
     //find currently active card
     let activeCard = this.state.values[this.state.activeIndex]
     //update its status to selected, and de-activate it
@@ -411,13 +407,6 @@ export default class App extends Component {
   componentWillMount() {
     //TODO if logged in, restore previous saved state from firebase
   }
-  // componentDidMount() {
-  //   fire.on('value', snapshot => {
-  //     console.log(snapshot, snapshot.val())
-  //     this.setState({values: snapshot.val()})
-  //     console.log(this.state.values[this.state.activeIndex], this.state.values.length - (this.state.totalSelected + this.state.totalRejected))
-  //   })
-  // }
 
   render() {
     if (!this.state.user && !this.state.anonUser) {
@@ -439,7 +428,9 @@ export default class App extends Component {
               <main className="container screenOne">
                 <Instructions text={'screenOne'}></Instructions>
                 <div id="cardRoot">
-                  <ValueCard name={this.state.values[this.state.activeIndex].name}/>
+                  <CSSTransitionGroup transitionName="cardFade" transitionAppear={true} transitionAppearTimeout={900} transitionEnterTimeout={600} transitionLeave={false}>
+                    <ValueCard name={this.state.values[this.state.activeIndex].name} key={this.state.values[this.state.activeIndex].id}/>
+                  </CSSTransitionGroup>
                 </div>
                 <section className="chooseCard">
                   <Counter className={"cardsRejected"} total={this.state.totalRejected}></Counter>
@@ -466,9 +457,9 @@ export default class App extends Component {
                   </Button>
                 </section>
                 <section className="chooseCard text">
-                  <span>Bummer</span>
+                  <span>Not Me</span>
                   <span>Maybe</span>
-                  <span>Oh yeah!</span>
+                  <span>So Me</span>
                 </section>
               </main>
 
@@ -490,7 +481,7 @@ export default class App extends Component {
               <main id="main" className="screenTwo">
                 <Instructions text={'screenTwoTop'}/>
                 <div id="cardRoot" className="flexContainer">
-                  <FlexCard className="flexLabel accepted" name="accepted:"/> {_.map(this.state.values, (card) => {
+                  <FlexCard className="flexLabel accepted" name="accepted:"/> {this.state.values.map(card => {
                     if (card.selected) {
                       return <FlexCard name={card.name} randomColor key={card.id} onClick={() => this.handleToggleCard(card.id)}/>
                     }
@@ -500,7 +491,7 @@ export default class App extends Component {
                 <UserInput className="newValue" onClick={this.handleEnter}/>
                 <Instructions text={'screenTwoBottom'}/>
                 <div id="cardRoot" className="flexContainer">
-                  <FlexCard className="flexLabel rejected" name="rejected:"/> {_.map(this.state.values, (card) => {
+                  <FlexCard className="flexLabel rejected" name="rejected:"/> {this.state.values.map(card => {
                     if (!card.selected) {
                       return <FlexCard name={card.name} randomColor key={card.id} onClick={() => this.handleToggleCard(card.id)}/>
                     }

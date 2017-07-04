@@ -62,8 +62,8 @@ h1, .valueCard, .counter, .flexCard, .listItem, h2 {
 
 .login .title {
   position: fixed;
-  left: 10%;
-  bottom: 30%;
+  left: 8%;
+  bottom: 23%;
 }
 .login h2 {
   opacity: 0;
@@ -71,7 +71,8 @@ h1, .valueCard, .counter, .flexCard, .listItem, h2 {
 }
 
 .login span {
-  background-color: rgba(48, 60, 108, 0.5);
+  color: rgba(48, 60, 108, 1);
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 0.5em;
   border-radius: 0.2em;
   font-size: 1rem;
@@ -187,23 +188,36 @@ svg {
 .valueCard {
   width: 90%;
   margin: auto;
-  border-bottom: 1px solid rgba(48, 60, 108, 1);
   padding: 0.5em;
   text-align: center;
   font-size: 300%;
 }
 
-/*TODO ReactCSSTransitionGroup*/
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+/*ReactCSSTransitionGroup*/
+.cardFade-enter {
+  opacity: 0.01;
 }
-.screenOne .valueCard p {
-  animation: fadeIn 1s forwards ease;
+
+.cardFade-enter.cardFade-enter-active {
+  opacity: 1;
+  transition: opacity 600ms ease-in;
+}
+
+.cardFade-leave {
+  opacity: 1;
+}
+
+.cardFade-leave.cardFade-leave-active {
+  opacity: 0.01;
+  transition: opacity .9s ease-in;
+}
+.cardFade-appear {
+  opacity: 0.01;
+}
+
+.cardFade-appear.cardFade-appear-active {
+  opacity: 1;
+  transition: opacity .6s ease-in;
 }
 
 .flexContainer {

@@ -1,22 +1,17 @@
-import React, {Component} from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-// TODO stateless functional components
+const Counter = (props) =>
+<section id={props.id} className={`counter ${props.className}`}>
+  <p className="cj">
+    {props.total}
+  </p>
+</section>
 
-
-export default class Counter extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
-    return (
-      <section id={this.props.id} className={`counter ${this.props.className}`}>
-        {/* <p>{this.props.children}</p> */}
-        <p className="cj">
-          {this.props.total}
-        </p>
-      </section>
-
-    )
-  }
+Counter.propTypes = {
+  id: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  className: PropTypes.string.isRequired
 }
+
+export default Counter

@@ -8,7 +8,8 @@
     "react-burger-menu": "^2.1.1",
     "react-dom": "^15.5.4",
     "react-sortable-hoc": "^0.6.3",
-    "react-swipe-card": "^0.1.4"
+    "react-swipe-card": "^0.1.4",
+    "react-transition-group": "^1.2.0"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"

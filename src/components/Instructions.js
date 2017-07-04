@@ -6,7 +6,7 @@ export default class Instructions extends Component {
   }
 
   render() {
-    const screenOneText = `Quickly chose as many as you want - aiming for about 15-20. We'll refine it later. Click the menu for more details.`
+    const screenOneText = `We're going to flash up some values. Quickly chose as many as you want - aiming for about 15-20. We'll refine it later. Click the menu for more details.`
     const screenTwoTextTop = `These are your values so far. Any you don't like? ... tap to remove.`
     const screenTwoInputText = `I missed one? Add it below:`
     const screenTwoTextBottom = `Want any of these back? ... tap to re-select. Play with them for a while.`

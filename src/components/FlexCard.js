@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 
 export default class FlexCard extends Component {
   constructor(props) {
-super(props)
+    super(props)
   }
   getRandomColor = () => {
     const colors = [
@@ -16,21 +16,22 @@ super(props)
       'rgba(168, 242, 219, 1)',
       'rgba(230,130,80, 1)',
       'rgba(253,190,118, 1)',
-      'rgba(109,143,144, 1)',
-
-  ]
+      'rgba(109,143,144, 1)'
+    ]
     const color = colors[Math.floor(Math.random() * colors.length)]
     let style = {}
-    console.log()
     if (this.props.randomColor) {
-    style = {color: color }
+      style = {
+        color: color
+      }
     }
     return style
   }
   render() {
     return (
       <section className={`flexCard ${this.props.className}`} style={this.getRandomColor()} onClick={this.props.onClick}>
-        <p>{this.props.name} </p>
+        <p>{this.props.name}
+        </p>
       </section>
     )
   }

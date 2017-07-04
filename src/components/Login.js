@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import auth from '../lib/auth'
 
 import Button from './Button'
-import img from '../img/login.jpg'
 
 export default class Login extends Component {
   constructor(props) {
@@ -16,9 +15,7 @@ export default class Login extends Component {
   onSignUp = () => {
     const username = this.refs.usernameInput.value
     const password = this.refs.passwordInput.value
-
     auth.createUserWithEmailAndPassword(username, password).then(() => {
-      //console.log(username, this.props)
       this.setState({error: undefined})
       this.props.handleAuth(true, false)
     }).catch(err => {
@@ -31,7 +28,6 @@ export default class Login extends Component {
   onLogIn = () => {
     const username = this.refs.usernameInput.value
     const password = this.refs.passwordInput.value
-
     auth.signInWithEmailAndPassword(username, password).then(() => {
       //TODO How to read and set previously saved state from firebase?
       this.setState({error: undefined})
@@ -77,7 +73,6 @@ export default class Login extends Component {
               Enter</Button>
             <span>(can't save and return)</span>
           </div>
-
         </div>
       </main>
     )
