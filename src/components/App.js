@@ -13,9 +13,8 @@ import UserInput from './UserInput'
 import Login from './Login'
 import LogOut from './LogOut'
 import db from '../lib/database'
-// import img from '../img/login.jpg'
 
-const fire = db.ref('UserValues')
+const fire = db.ref('username')
 
 //Save initial state so can reset
 const initialState = {
@@ -236,7 +235,19 @@ const initialState = {
 export default class App extends Component {
   constructor(props) {
     super(props)
-    this.state = initialState
+    this.state = {}
+  }
+
+  handleAuth = (user, anon) => {
+    this.setState({user: user, anonUser: anon})
+  }
+
+  handleLogOut = () => {
+    //persist user's state through firebase
+    fire.set(this.state)
+    //Reset state to defaults
+    this.reset()
+    window.location.reload(); //because reset() doesn't
   }
 
   reset = () => {
@@ -246,28 +257,6 @@ export default class App extends Component {
     this.setState(initialState) //FIXME doesn't deeply work - coz mutating state elsewhere??
     //...but preserve login status
     this.setState({user: user, anonUser: anonUser})
-  }
-
-  handleAuth = (user, anon) => {
-    this.setState({user: user, anonUser: anon})
-  }
-
-  handleLogOut = () => {
-    //persist users state through firebase
-    fire.set(this.state)
-    //Reset state to defaults
-    this.reset()
-    window.location.reload();
-  }
-
-  changeScreen = (screen) => {
-    if (this.state.totalSelected < 10) {
-      alert('Choose more values!')
-    } else {
-      let newScreen = this.state
-      newScreen.screen = screen
-      this.setState({newScreen: newScreen})
-    }
   }
 
   //find next nonhandled card and activate it
@@ -366,6 +355,16 @@ export default class App extends Component {
     state.totalRejected = totalRejected
   }
 
+  changeScreen = (screen) => {
+    if (this.state.totalSelected < 6) {
+      alert('Choose more values!')
+    } else {
+      let newScreen = this.state
+      newScreen.screen = screen
+      this.setState({newScreen: newScreen})
+    }
+  }
+
   // Because 1: react-sortable-hoc requires an array of simple strings, 2: to transfer state to SortableComponent
   makeValueArray = () => {
     const obj = {
@@ -403,9 +402,18 @@ export default class App extends Component {
     this.setState({oldValues: oldValues})
   }
 
-  //Set defaults to firebase
-  componentWillMount() {
-    //TODO if logged in, restore previous saved state from firebase
+  componentDidMount() {
+    //if logged in, restore previous saved state from firebase
+    if (this.state.user) {
+      fire.on('value', snapshot => {
+        this.setState({
+          values: snapshot.val()
+        })
+      })
+    } else {
+      //load defaults
+      this.setState(initialState)
+    }
   }
 
   render() {
@@ -421,14 +429,14 @@ export default class App extends Component {
             <div id="page-wrap" className="screenOne">
               <LogOut handleLogOut={this.handleLogOut}></LogOut>
               <Button onClick={this.reset} className="startOver" icon="redo">
-                <svg width="20" height="20" viewBox="0 0 20 20">
+                {<svg width="20" height="20" viewBox="0 0 20 20">
                   <path fill="rgba(48, 60, 108, 1)" d="M17.51 4.49c-1.605-1.605-3.74-2.49-6.010-2.49s-4.405 0.884-6.010 2.49-2.49 3.74-2.49 6.010v1.293l-2.146-2.146c-0.195-0.195-0.512-0.195-0.707 0s-0.195 0.512 0 0.707l3 3c0.098 0.098 0.226 0.146 0.354 0.146s0.256-0.049 0.354-0.146l3-3c0.195-0.195 0.195-0.512 0-0.707s-0.512-0.195-0.707 0l-2.146 2.146v-1.293c0-4.136 3.364-7.5 7.5-7.5s7.5 3.364 7.5 7.5-3.364 7.5-7.5 7.5c-0.276 0-0.5 0.224-0.5 0.5s0.224 0.5 0.5 0.5c2.27 0 4.405-0.884 6.010-2.49s2.49-3.74 2.49-6.010c0-2.27-0.884-4.405-2.49-6.010z"></path>
-                </svg>
+                </svg>}
               </Button>
               <main className="container screenOne">
                 <Instructions text={'screenOne'}></Instructions>
                 <div id="cardRoot">
-                  <CSSTransitionGroup transitionName="cardFade" transitionAppear={true} transitionAppearTimeout={900} transitionEnterTimeout={600} transitionLeave={false}>
+                  <CSSTransitionGroup transitionName="cardFade" transitionAppear={true} transitionAppearTimeout={900} transitionEnterTimeout={200} transitionLeave={false}>
                     <ValueCard name={this.state.values[this.state.activeIndex].name} key={this.state.values[this.state.activeIndex].id}/>
                   </CSSTransitionGroup>
                 </div>

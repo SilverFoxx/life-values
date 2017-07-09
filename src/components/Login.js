@@ -17,7 +17,7 @@ export default class Login extends Component {
     const password = this.refs.passwordInput.value
     auth.createUserWithEmailAndPassword(username, password).then(() => {
       this.setState({error: undefined})
-      this.props.handleAuth(true, false)
+      this.props.handleAuth(username, false)
     }).catch(err => {
       this.setState({error: err.message})
     });
@@ -31,7 +31,7 @@ export default class Login extends Component {
     auth.signInWithEmailAndPassword(username, password).then(() => {
       //TODO How to read and set previously saved state from firebase?
       this.setState({error: undefined})
-      this.props.handleAuth(true, false)
+      this.props.handleAuth(username, false)
     }).catch(err => {
       this.setState({error: err.message})
     });

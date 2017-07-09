@@ -31,9 +31,11 @@ export default class SortableComponent extends Component {
     }
     this.setState({user: false, anonUser: false})
   }
+
   handleAuth = (user, anon) => {
     this.setState({user: user, anonUser: anon})
   }
+
   onSortEnd = ({oldIndex, newIndex}) => {
     this.setState({
       valueName: arrayMove(this.state.valueName, oldIndex, newIndex)
@@ -64,7 +66,6 @@ export default class SortableComponent extends Component {
     }
 
     if (this.state.screen === 4) {
-      //startover option
       return (
         <div id="outer-container">
           <BurgerMenu></BurgerMenu>
@@ -82,8 +83,9 @@ export default class SortableComponent extends Component {
                   return <ValueCard name={card} key={index}/>
                 })}
               </div>
-              <div className="finalText">
-              <p>That was the easy part. Now you have to change your life until you're living in harmony with {this.state.valueName[0]}, {this.state.valueName[1]} and {this.state.valueName[2]}.</p>
+              <div className="finalText cj">
+              <p>That was the easy part.</p>
+              <p>Now you have to change your life until {this.state.valueName[0]}, {this.state.valueName[1]} and {this.state.valueName[2]} are at the core of everything you say and do.</p>
               <a href="http://reallylivelife.org/life-philosophy/why-you-need-a-personal-philosophy-of-life.html" title="External link" className="cta">Here's how...</a>
             </div>
             </main>
