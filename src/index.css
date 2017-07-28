@@ -203,7 +203,7 @@ svg {
 
 .cardFade-enter.cardFade-enter-active {
   opacity: 1;
-  transition: opacity 0.2s ease-in;
+  transition: opacity 0.1s ease-in;
 }
 
 .cardFade-leave {
@@ -349,12 +349,10 @@ section.counter:nth-of-type(3) {
 
 @keyframes spin {
   from {
-    /*transform: rotateY(0);*/
     opacity: 0;
     font-size: 10%;
   }
   to {
-    /*transform: rotateY(1turn);*/
     opacity: 1;
     font-size: 200%;
   }

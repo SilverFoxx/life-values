@@ -436,7 +436,7 @@ export default class App extends Component {
               <main className="container screenOne">
                 <Instructions text={'screenOne'}></Instructions>
                 <div id="cardRoot">
-                  <CSSTransitionGroup transitionName="cardFade" transitionAppear={true} transitionAppearTimeout={900} transitionEnterTimeout={200} transitionLeave={false}>
+                  <CSSTransitionGroup transitionName="cardFade" transitionAppear={true} transitionAppearTimeout={900} transitionEnterTimeout={100} transitionLeave={false}>
                     <ValueCard name={this.state.values[this.state.activeIndex].name} key={this.state.values[this.state.activeIndex].id}/>
                   </CSSTransitionGroup>
                 </div>
